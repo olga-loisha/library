@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { exhaustMap, of, map, catchError } from 'rxjs';
 
@@ -9,7 +10,8 @@ import * as AuthActions from '../actions/auth.actions';
 export class AuthEffects {
   constructor(
     private actions$: Actions,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private router: Router
   ) {}
 
   // @ts-ignore
@@ -18,10 +20,11 @@ export class AuthEffects {
     exhaustMap(action => this.apiService.login(action.username, action.password)
       .pipe(
         map((userId: number) => {
+          this.router.navigate(['']);
           return AuthActions.loginSuccess({userId: userId});
         }),
         catchError((error) => {
-          return of(AuthActions.loginFail({errorMessage: error}));
+          return of(AuthActions.loginFail({errorMessage: error.error.message}));
         })
       ))
     )

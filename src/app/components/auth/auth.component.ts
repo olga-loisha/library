@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -8,8 +11,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class AuthComponent implements OnInit {
   loginForm: FormGroup<{ username: FormControl<string | null>; password: FormControl<string | null>; }> | undefined;
+  loginError$: Observable<string | null> | undefined;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private authService: AuthService) {}
 
   //TODO: server-side error handling
 
@@ -18,6 +22,8 @@ export class AuthComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
+
+    this.loginError$ = this.authService.getLoginError();
   }
 
   get username(): any {
@@ -34,7 +40,8 @@ export class AuthComponent implements OnInit {
 
   onSubmit(): void {
     if (this.loginForm && this.loginForm.valid) {
-      console.log(this.loginForm.value);
+      // @ts-ignore
+      this.authService.login(this.loginForm.value.username, this.loginForm.value.password)
     }
   }
 }
