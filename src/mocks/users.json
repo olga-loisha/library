@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "username": "bilbo",
+    "password": "user123",
+    "name": "Bilbo",
+    "lastname": "Baggins",
+    "gender": "male",
+    "birthday": "1950-03-01T00:00:00.000Z",
+    "description": "I love travelling on feet. Especially to mountains."
+  },
+  {
+    "id": 2,
+    "username": "wizzard",
+    "password": "user456",
+    "name": "Gandalf",
+    "lastname": "The Grey",
+    "gander": "male",
+    "birthday": "0000-00-00T00:00:00.000Z",
+    "description": "I usually find someone from The Small Folk and delegate them a world saving mission."
+  }
+]
