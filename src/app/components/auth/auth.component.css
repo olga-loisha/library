@@ -1,0 +1,101 @@
+.login-form-container {
+  height: 400px;
+  width: 400px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.login-form {
+  background: rgba(255,255,255,0.3);
+  padding: 3em;
+  border-radius: 20px;
+  border-left: 1px solid rgba(255,255,255,0.3);
+  border-top: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.login-form-header {
+  font-weight: 500;
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.login-form-input-field {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.login-form-input-field__label {
+  margin: 5px 0;
+  font-size: 1.2em;
+}
+
+.login-form-input-field__input {
+  background: transparent;
+  width: 100%;
+  padding: 1em;
+  border: none;
+  border-left: 1px solid rgba(255,255,255,0.3);
+  border-top: 1px solid rgba(255,255,255,0.3);
+  border-radius: 10px;
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  transition: all 0.2s ease-in-out;
+}
+
+.login-form-input-field__input:hover, .login-form-input-field__input:focus {
+  background: rgba(255,255,255,0.1);
+  box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+  outline: none;
+}
+
+.login-form-input-field__error {
+  margin-bottom: 0;
+  font-size: 1em;
+  color: darkred;
+}
+
+.login-form-error {
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  color: darkred;
+}
+
+.login-form-button {
+  margin-top: 10px;
+  width: 150px;
+  padding: 1em;
+  background: transparent;
+  border: none;
+  border-left: 1px solid rgba(255,255,255,0.3);
+  border-top: 1px solid rgba(255,255,255,0.3);
+  border-radius: 10px;
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  font-size: 1.2em;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.login-form-button:hover:not([disabled]) {
+  background: rgba(255,255,255,0.2);
+}
+
+.login-form-button:disabled {
+  color: rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+  cursor: auto;
+}
