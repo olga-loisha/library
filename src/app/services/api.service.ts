@@ -11,8 +11,10 @@ export class ApiService {
     const body = { username, password };
 
     return this.http.post<number>(url, body);
-    /*.pipe(
-      map((userId: number) => userId)
-    )*/
+  }
+
+  logout(): Observable<void> {
+    const url = '/logout';
+    return this.http.post<void>(url, {});
   }
 }

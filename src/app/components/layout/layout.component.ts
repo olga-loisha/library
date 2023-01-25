@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-layout',
@@ -6,7 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./layout.component.css']
 })
 export class LayoutComponent {
-  onLogout(): void {
+  constructor(private authService: AuthService) {}
 
+  onLogout(): void {
+    this.authService.logout();
   }
 }
