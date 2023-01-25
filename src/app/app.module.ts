@@ -13,12 +13,18 @@ import { AuthComponent } from './components/auth/auth.component';
 import { authReducer } from './store/reducers/auth.reducer';
 import { AuthEffects } from './store/effects/auth.effects';
 import { BooksComponent } from './components/books/books.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { AuthLayoutComponent } from './components/layout/auth-layout/auth-layout.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    BooksComponent
+    BooksComponent,
+    LayoutComponent,
+    AuthLayoutComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -24,6 +24,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       switch (true) {
         case url.endsWith('/users/authenticate') && method === 'POST':
           return authenticate();
+        case url.endsWith('/logout') && method === 'POST':
+          return logout();
         /*
         case url.match(/\/users\/\d+$/) && method === 'GET':
           return getUserById();
@@ -41,8 +43,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           return getBookById();
         case url.endsWith('/books/add') && method === 'POST':
           return addBook();
-        case url.endsWith('/logout') && method === 'POST':
-          return logout();
+
         */
         default:
           // pass through any requests not handled above
@@ -63,6 +64,11 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       return ok({
         userId: user.id
       })
+    }
+
+    function logout() {
+      localStorage.removeItem('token');
+      return ok()
     }
 
     // helper functions

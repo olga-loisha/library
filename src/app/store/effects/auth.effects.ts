@@ -27,6 +27,20 @@ export class AuthEffects {
           return of(AuthActions.loginFail({errorMessage: error.error.message}));
         })
       ))
-    )
-  );
+  ));
+
+  // @ts-ignore
+  logout$ = createEffect(() => this.actions$.pipe(
+    ofType(AuthActions.logout),
+    exhaustMap(action => this.apiService.logout()
+      .pipe(
+        map(() => {
+          this.router.navigate(['/login']);
+          return AuthActions.logoutSuccess();
+        }),
+        catchError((error) => {
+          return of(AuthActions.logoutFail({errorMessage: error.error.message}));
+        })
+      ))
+  ));
 }
