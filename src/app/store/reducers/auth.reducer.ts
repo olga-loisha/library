@@ -1,4 +1,4 @@
-import {Action, createReducer, on} from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
 import * as AuthActions from '../actions/auth.actions';
 
 export interface AuthState {
@@ -17,7 +17,7 @@ export const authState: AuthState = {
 
 export const reducer = createReducer(
   authState,
-  on(AuthActions.loginSuccess, (state, { userId }) => ({ ...state, userId: userId, isLoggedIn: true })),
+  on(AuthActions.loginSuccess, (state, { userId }) => ({ ...state, userId: userId, isLoggedIn: true, loginErrorMessage: null })),
   on(AuthActions.loginFail, (state, { errorMessage }) => ({ ...state, loginErrorMessage: errorMessage })),
   on(AuthActions.logoutSuccess, state => ({ ...state, isLoggedIn: false })),
   on(AuthActions.logoutFail, (state, { errorMessage }) => ({ ...state, logoutErrorMessage: errorMessage })),

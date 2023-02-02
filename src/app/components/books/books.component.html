@@ -1,1 +1,19 @@
-<p>books works!</p>
+<ng-container *ngIf="(books$ | async) as books; else booksEmpty">
+  <ng-container *ngIf="books.length > 0; else booksEmpty">
+    <section></section>
+  </ng-container>
+</ng-container>
+
+<ng-template #booksEmpty>
+  <ng-container *ngIf="!(booksError$ | async); else booksServerError">
+    <section class="books-message-container">
+      <p>There are not any books yet, but we are working on adding some!</p>
+    </section>
+  </ng-container>
+</ng-template>
+
+<ng-template #booksServerError>
+  <section class="books-message-container">
+    <p>{{ (booksError$ | async) }}</p>
+  </section>
+</ng-template>

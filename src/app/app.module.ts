@@ -9,9 +9,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { fakeBackendProvider } from './interceptors/fake-backend-interceptor';
-import { AuthComponent } from './components/auth/auth.component';
 import { authReducer } from './store/reducers/auth.reducer';
+import { booksReducer } from './store/reducers/books.reducer';
 import { AuthEffects } from './store/effects/auth.effects';
+import { BooksEffects } from './store/effects/books.effects';
+import { AuthComponent } from './components/auth/auth.component';
 import { BooksComponent } from './components/books/books.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { AuthLayoutComponent } from './components/layout/auth-layout/auth-layout.component';
@@ -30,8 +32,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule.forRoot({ auth: authReducer },{}),
-    EffectsModule.forRoot([AuthEffects]),
+    StoreModule.forRoot({ auth: authReducer, books: booksReducer },{}),
+    EffectsModule.forRoot([AuthEffects, BooksEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25
     }),

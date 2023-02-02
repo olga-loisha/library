@@ -5,13 +5,16 @@ import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
 import { User } from '../models/User';
 import { Users } from '../mocks/users';
+import { Book } from '../models/Book';
+import { Books } from '../mocks/books';
 
 const users: User[] = Users;
+const books: Book[] = Books
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const {url, method, headers, body} = request;
+    const { url, method, headers, body } = request;
 
     // wrap in delayed observable to simulate server api call
     return of<null>(null)
@@ -26,6 +29,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           return authenticate();
         case url.endsWith('/logout') && method === 'POST':
           return logout();
+        case url.endsWith('/books') && method === 'GET':
+          return getBooks();
         /*
         case url.match(/\/users\/\d+$/) && method === 'GET':
           return getUserById();
@@ -37,10 +42,9 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           return addToFavorite();
         case url.match(/\/users\/\d+$/\/book\/\d+$) && method === 'DELETE':
           return deleteFromFavorite();
-        case url.endsWith('/books') && method === 'GET':
-          return getBooks();
         case url.match(/\/books\/\d+$/) && method === 'GET':
           return getBookById();
+
         case url.endsWith('/books/add') && method === 'POST':
           return addBook();
 
@@ -63,18 +67,23 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
       return ok({
         userId: user.id
-      })
+      });
     }
 
     function logout() {
       localStorage.removeItem('token');
-      return ok()
+      return ok();
+    }
+
+    function getBooks() {
+      return ok(books);
+      // return error('Something went wrong!');
     }
 
     // helper functions
 
     function ok(body?: any) {
-      return of(new HttpResponse({ status: 200, body }))
+      return of(new HttpResponse({ status: 200, body }));
     }
 
     function error(message: string) {
