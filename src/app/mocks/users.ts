@@ -1,5 +1,5 @@
 import { User } from '../models/User';
-import {Gender} from "../models/enums/gender";
+import { Gender } from '../models/enums/gender';
 
 export const Users: User[] = [
   {
