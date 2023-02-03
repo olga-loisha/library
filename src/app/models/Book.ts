@@ -6,4 +6,5 @@ export interface Book {
   author: string;
   genre: Genre;
   annotation: string;
+  imgUrl: string;
 }

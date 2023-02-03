@@ -1,6 +1,10 @@
 <ng-container *ngIf="(books$ | async) as books; else booksEmpty">
   <ng-container *ngIf="books.length > 0; else booksEmpty">
-    <section></section>
+    <section class="books-list">
+      <div *ngFor="let book of books">
+        <app-book-card [book]="book"></app-book-card>
+      </div>
+    </section>
   </ng-container>
 </ng-container>
 

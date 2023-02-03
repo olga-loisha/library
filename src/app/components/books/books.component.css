@@ -6,3 +6,10 @@
   text-align: center;
   color: black;
 }
+
+.books-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 2em;
+}

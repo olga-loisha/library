@@ -18,6 +18,7 @@ import { BooksComponent } from './components/books/books.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { AuthLayoutComponent } from './components/layout/auth-layout/auth-layout.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { BookCardComponent } from './components/book-card/book-card.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     BooksComponent,
     LayoutComponent,
     AuthLayoutComponent,
-    ProfileComponent
+    ProfileComponent,
+    BookCardComponent
   ],
   imports: [
     BrowserModule,
