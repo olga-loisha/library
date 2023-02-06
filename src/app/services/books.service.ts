@@ -3,7 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { getBooks } from '../store/actions/books.actions';
-import { getBooksErrorMessage, getBooksFromStore } from '../store/selectors/books.selector';
+import { getBooksErrorMessage, selectAllBooks } from '../store/selectors/books.selector';
 import { Book } from '../models/Book';
 
 @Injectable({ providedIn: 'root' })
@@ -15,7 +15,7 @@ export class BooksService {
   }
 
   getBooksFromStore(): Observable<Book[] | null> {
-    return this.store.pipe(select(getBooksFromStore));
+    return this.store.pipe(select(selectAllBooks));
   }
 
   getBooksError(): Observable<string | null> {

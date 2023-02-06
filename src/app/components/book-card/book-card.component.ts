@@ -9,4 +9,8 @@ import { Book } from '../../models/Book';
 })
 export class BookCardComponent {
   @Input() book: Book | undefined;
+
+  onClick(bookId: number | undefined): void {
+
+  }
 }

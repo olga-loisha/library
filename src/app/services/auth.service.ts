@@ -3,7 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { login, logout } from '../store/actions/auth.actions';
-import { getLoginErrorMessage } from '../store/selectors/auth.selectors';
+import { selectLoginErrorMessage } from '../store/selectors/auth.selectors';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -14,7 +14,7 @@ export class AuthService {
   }
 
   getLoginError(): Observable<string | null> {
-    return this.store.pipe(select(getLoginErrorMessage))
+    return this.store.pipe(select(selectLoginErrorMessage))
   }
 
   logout(): void {

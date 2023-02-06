@@ -89,16 +89,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     function error(message: string) {
       return throwError(() => ({ error: { message } }));
     }
-
-    // TODO: move logic to guard
-    function unauthorized() {
-      return throwError(() => ({ status: 401, error: { message: 'Unauthorised' } }));
-    }
-
-    // TODO: move logic to guard
-    function isLoggedIn() {
-      return headers.get('Authorization') === 'Bearer fake-jwt-token';
-    }
   }
 }
 
