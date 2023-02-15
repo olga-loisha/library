@@ -1,0 +1,26 @@
+.book {
+  display: flex;
+  margin: 5em;
+  padding: 1.5em;
+  background-color: white;
+  color: black;
+}
+
+.book-info {
+  margin-left: 3em;
+}
+
+.book-info-name {
+  margin: 0;
+  font-size: 2em;
+}
+
+.book-info-author {
+  font-size: 1.2em;
+}
+
+.book-info-annotation {
+  white-space: pre-line;
+  font-size: 1.1em;
+}
+

@@ -4,6 +4,6 @@
     <p>
       <span class="book-card-book-info">{{book?.name}}</span> by <span class="book-card-book-info">{{book?.author}}</span>
     </p>
-    <span class="book-card-genre">{{book?.genre}}</span>
+    <app-tag [tag]="book?.genre"></app-tag>
   </div>
 </div>

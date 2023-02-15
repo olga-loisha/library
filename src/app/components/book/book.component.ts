@@ -1,10 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Book} from "../../models/Book";
-import {Observable} from "rxjs";
-import {BooksService} from "../../services/books.service";
-import {select, Store} from "@ngrx/store";
-import {selectAllBooks, selectBooksEntities} from "../../store/selectors/books.selector";
-import {getCurrentRouteParams} from "../../store/selectors/router.selectors";
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { Book } from '../../models/Book';
+import { BooksService } from '../../services/books.service';
 
 @Component({
   selector: 'app-book',
@@ -16,7 +14,7 @@ export class BookComponent implements OnInit {
   router: any;
   books: any
 
-  constructor(private booksService: BooksService, private store: Store) {}
+  constructor(private booksService: BooksService) {}
 
   ngOnInit(): void {
     this.selectedBook$ = this.booksService.getSelectedBook();

@@ -1,6 +1,12 @@
-<div *ngIf="selectedBook$ | async as selectedBook">
-  {{selectedBook?.annotation}}
-</div>
-
-<div *ngIf="router">{{router.id}}</div>
-<!--<div *ngIf="books">{{books}}</div>-->
+<section *ngIf="selectedBook$ | async as selectedBook" class="book">
+  <img [src]="selectedBook.imgUrl"/>
+  <div class="book-info">
+    <h4 class="book-info-name">{{selectedBook.name}}</h4>
+    <p>
+      <span>By </span>
+      <span class="book-info-author">{{selectedBook.author}}</span>
+    </p>
+    <app-tag [tag]="selectedBook.genre"></app-tag>
+    <p class="book-info-annotation">{{selectedBook.annotation}}</p>
+  </div>
+</section>

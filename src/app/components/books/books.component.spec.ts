@@ -6,7 +6,7 @@ import { BooksComponent } from './books.component';
 describe('BooksComponent', () => {
   let component: BooksComponent;
   let fixture: ComponentFixture<BooksComponent>;
-  let initialState = { books: null };
+  let initialState = {};
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

@@ -25,6 +25,7 @@ import { BookCardComponent } from './components/book-card/book-card.component';
 import { BookComponent } from './components/book/book.component';
 import {CustomSerializer} from './store/reducers/router.reducer';
 import {reducers} from "./store/reducers";
+import { TagComponent } from './components/tag/tag.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {reducers} from "./store/reducers";
     AuthLayoutComponent,
     ProfileComponent,
     BookCardComponent,
-    BookComponent
+    BookComponent,
+    TagComponent
   ],
   imports: [
     BrowserModule,
