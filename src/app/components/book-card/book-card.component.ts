@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Router} from '@angular/router';
 
-import { Book } from '../../models/Book';
+import {Book} from '../../models/Book';
 
 @Component({
   selector: 'app-book-card',
@@ -10,7 +11,9 @@ import { Book } from '../../models/Book';
 export class BookCardComponent {
   @Input() book: Book | undefined;
 
-  onClick(bookId: number | undefined): void {
+  constructor(private router: Router) {}
 
+  onClick(bookId: number | undefined): void {
+    this.router.navigate(['/book', bookId]);
   }
 }

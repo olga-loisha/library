@@ -1,0 +1,6 @@
+<div *ngIf="selectedBook$ | async as selectedBook">
+  {{selectedBook?.annotation}}
+</div>
+
+<div *ngIf="router">{{router.id}}</div>
+<!--<div *ngIf="books">{{books}}</div>-->
