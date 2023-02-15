@@ -1,10 +1,10 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { AuthState } from '../reducers/auth.reducer';
 
-export const getAuthState = createFeatureSelector<AuthState>('auth');
+export const selectAuthState = createFeatureSelector<AuthState>('auth');
 
-export const getLoginErrorMessage = createSelector(
-  getAuthState,
+export const selectLoginErrorMessage = createSelector(
+  selectAuthState,
   (state: AuthState) => state.loginErrorMessage
 );
 

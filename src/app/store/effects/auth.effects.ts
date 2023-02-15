@@ -20,7 +20,7 @@ export class AuthEffects {
     exhaustMap(action => this.apiService.login(action.username, action.password)
       .pipe(
         map((userId: number) => {
-          this.router.navigate(['']);
+          this.router.navigate(['/books']);
           return AuthActions.loginSuccess({userId: userId});
         }),
         catchError((error) => {
